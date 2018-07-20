@@ -48,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
     @BindView(R.id.cardAbout)
     CardView cardAbout;
 
+    UsersSession usersSession;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,22 @@ public class HomeActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+        usersSession = new UsersSession(this);
+        String idRole = usersSession.getSpIdRole();
+        if (idRole.equals("4")){
+            cardLayanan.setVisibility(View.GONE);
+            cardLaporan.setVisibility(View.GONE);
+            cardPosyandu.setVisibility(View.GONE);
+            cardKader.setVisibility(View.GONE);
+            cardBidan.setVisibility(View.GONE);
+            cardAbout.setVisibility(View.GONE);
+        } else if (idRole.equals("3")){
+            cardPosyandu.setVisibility(View.GONE);
+            cardKader.setVisibility(View.GONE);
+            cardBidan.setVisibility(View.GONE);
+            cardAbout.setVisibility(View.GONE);
+        }
     }
 
     @Override
