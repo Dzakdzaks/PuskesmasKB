@@ -75,22 +75,28 @@ public class GrafikActivity extends AppCompatActivity implements SwipeRefreshLay
                 R.color.colorPrimary,
                 R.color.colorPrimaryDark
         );
+
+
         swipeRefresh.post(new Runnable() {
             @Override
             public void run() {
                 swipeRefresh.setRefreshing(true);
-                getchart();
-                getChartMetode();
+                if (getSupportActionBar().getTitle().equals("Grafik Status")){
+                    getchart();
+                } else {
+                    getChartMetode();
+                }
             }
         });
-
-
 
     }
     @Override
     public void onRefresh() {
-        getchart();
-        getChartMetode();
+        if (getSupportActionBar().getTitle().equals("Grafik Status")){
+            getchart();
+        } else {
+            getChartMetode();
+        }
     }
 
     private void getChartMetode() {

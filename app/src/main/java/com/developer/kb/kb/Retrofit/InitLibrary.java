@@ -11,7 +11,7 @@ public class InitLibrary {
 //    }
 
     public static Retrofit setInit(){
-        return new Retrofit.Builder().baseUrl("http://192.168.43.17/newkb/")
+        return new Retrofit.Builder().baseUrl("http://192.168.0.107/newkb/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
