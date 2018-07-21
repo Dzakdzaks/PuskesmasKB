@@ -12,15 +12,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.developer.kb.kb.Bidan.BidanActivity;
 import com.developer.kb.kb.Global.UsersSession;
 import com.developer.kb.kb.Grafik.GrafikActivity;
 import com.developer.kb.kb.Kader.Kadersss;
 import com.developer.kb.kb.Laporan.Laporan;
-import com.developer.kb.kb.Petugas.KaderActivity;
 import com.developer.kb.kb.Layanan.LayananActivity;
 import com.developer.kb.kb.Pasien.PasienActivity;
+import com.developer.kb.kb.Petugas.KaderActivity;
 import com.developer.kb.kb.Posyandu.PosyanduActivity;
 
 import butterknife.BindView;
@@ -50,6 +51,9 @@ public class HomeActivity extends AppCompatActivity {
 
     UsersSession usersSession;
 
+    @BindView(R.id.toolbar_title)
+    TextView toolbarTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,19 +74,22 @@ public class HomeActivity extends AppCompatActivity {
 
         usersSession = new UsersSession(this);
         String idRole = usersSession.getSpIdRole();
-        if (idRole.equals("4")){
+        if (idRole.equals("4")) {
             cardLayanan.setVisibility(View.GONE);
             cardLaporan.setVisibility(View.GONE);
             cardPosyandu.setVisibility(View.GONE);
             cardKader.setVisibility(View.GONE);
             cardBidan.setVisibility(View.GONE);
             cardAbout.setVisibility(View.GONE);
-        } else if (idRole.equals("3")){
+        } else if (idRole.equals("3")) {
             cardPosyandu.setVisibility(View.GONE);
             cardKader.setVisibility(View.GONE);
             cardBidan.setVisibility(View.GONE);
             cardAbout.setVisibility(View.GONE);
         }
+
+        String namaRole = usersSession.getSpNamaRole();
+        toolbarTitle.setText(namaRole);
     }
 
     @Override
