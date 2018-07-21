@@ -12,6 +12,7 @@ public class UsersSession {
     public static final String SP_ID_USERS = "spIdUsers";
     public static final String SP_ID_POS = "spIdPos";
     public static final String SP_ID_ROLE = "spIdRole";
+    public static final String SP_NAME_ROLE = "spNameRole";
     public static final String SP_NAME = "spName";
     public static final String SP_NIP = "spNip";
     public static final String SP_USERNAME = "spUname";
@@ -65,6 +66,9 @@ public class UsersSession {
     public void saveSPBoolean(String keySP, boolean value) {
         spEditor.putBoolean(keySP, value);
         spEditor.commit();
+    }
+    public String getSpNamaRole() {
+        return sp.getString(SP_NAME_ROLE, "");
     }
 
     public String getSpIdUsers() {

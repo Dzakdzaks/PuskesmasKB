@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                             String pass = users.getPassword();
                             String alamat = users.getAlamat();
                             String no = users.getNomorTelpon();
+                            String namaRole = users.getmNamaRole();
 
                             Log.d("pos", idPos);
 
@@ -116,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                             session.saveSPString(UsersSession.SP_PASSWORD, pass);
                             session.saveSPString(UsersSession.SP_ADDRESS, alamat);
                             session.saveSPString(UsersSession.SP_NO, no);
+                            session.saveSPString(UsersSession.SP_NAME_ROLE, namaRole);
                             session.saveSPBoolean(UsersSession.SP_SUDAH_LOGIN, true);
 
                             System.out.println("nama users : " + nama);

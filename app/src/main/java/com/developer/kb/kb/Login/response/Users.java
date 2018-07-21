@@ -24,6 +24,17 @@ public class Users {
     @SerializedName("username")
     private String mUsername;
 
+    public String getmNamaRole() {
+        return mNamaRole;
+    }
+
+    public void setmNamaRole(String mNamaRole) {
+        this.mNamaRole = mNamaRole;
+    }
+
+    @SerializedName("nama_role")
+    private String mNamaRole;
+
     public String getAlamat() {
         return mAlamat;
     }
